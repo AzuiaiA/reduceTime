@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas圆和弧</title>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="768" style="border:1px solid #000;display:block;margin:100px auto"></canvas>
+</body>
+<script>
+/*绘制圆和弧：绘制圆和弧的方法为arc(x,y,r,startingAngle,endingAngle,anticlockwise);
+			其中：x,y为圆心的x,y坐标
+				  r为半径
+				  startingAngle为开始的弧度
+				  endingAngle为结束的弧度
+				  anticlockwise为画的方向，顺时针为false（默认值），逆时针为true。
+*/
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+
+	context.lineWidth = 5;
+	context.strokeStyle = "#005588";
+
+	for(var i=0;i<10;i++){
+		context.beginPath();
+		context.arc(50+i*100,60,40,0,2*Math.PI*(i+1)/10);
+		context.closePath();
+
+		context.stroke();
+	}
+
+	for(var i=0;i<10;i++){
+		context.beginPath();
+		context.arc(50+i*100,180,40,0,2*Math.PI*(i+1)/10);
+		// context.closePath();
+
+		context.stroke();
+	}
+
+	for(var i=0;i<10;i++){
+		context.beginPath();
+		context.arc(50+i*100,300,40,0,2*Math.PI*(i+1)/10,true);
+		context.closePath();
+
+		context.stroke();
+	}
+
+	for(var i=0;i<10;i++){
+		context.beginPath();
+		context.arc(50+i*100,420,40,0,2*Math.PI*(i+1)/10,true);
+		// context.closePath();
+
+		context.stroke();
+	}
+
+	context.fillStyle = "#005588";
+	for(var i=0;i<10;i++){
+		context.beginPath();
+		context.arc(50+i*100,540,40,0,2*Math.PI*(i+1)/10);
+		context.closePath();
+
+		context.fill();
+	}
+
+	for(var i=0;i<10;i++){
+		context.beginPath();
+		context.arc(50+i*100,660,40,0,2*Math.PI*(i+1)/10);
+		// context.closePath();
+
+		context.fill();
+	}
+</script>
+</html>

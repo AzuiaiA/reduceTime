@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas基本方法</title>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="768" style="border:1px solid #000;display:block;margin:100px auto"></canvas>
+</body>
+<script>
+/*context方法：1、moveTo(x,y)（定义开始的坐标）
+			   2、lineTo(x,y)（定义结束的坐标）
+			   3、beginPath()（定义开始路径状态）
+			   4、closePath()（定义结束路径状态）（如果路径绘制的图形不是封闭的，会用一条线段将图形封闭）
+			   5、lineWidth = 值（线条的宽度）
+			   6、strokeStyle = 值（线条样式，一般用于定义颜色）
+			   7、fillStyle = 值（填充样式，一般用于定义颜色）
+			   8、stroke()（绘制线条）
+			   9、fill()（绘制填充区域）
+*/
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+
+	context.beginPath();
+	context.moveTo(100,100);
+	context.lineTo(700,700);
+
+	context.lineTo(100,700);
+
+	context.lineTo(100,100);
+	context.closePath();
+
+	/*context.lineWidth = 5;
+	context.strokeStyle = "#005588";
+
+	context.stroke();*/
+
+	/*context.fillStyle = "rgb(2,100,30)";
+	context.fill();*/
+
+	context.lineWidth = 5;
+	context.strokeStyle = "red";
+
+	context.stroke();
+
+	context.beginPath();
+	context.moveTo(200,100);
+	context.lineTo(700,600);
+
+	context.lineWidth = 5;
+	context.strokeStyle = "#005588";
+
+	context.stroke();
+	context.closePath();
+</script>
+</html>
